@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竞彩网 · 知识库入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f1f3f5;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #2d3436;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .page-wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* 头部区域 */
+        .site-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .site-header h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #1e272e;
+            background: #ffffffd9;
+            display: inline-block;
+            padding: 0.5rem 2rem 0.6rem 2rem;
+            border-radius: 48px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            backdrop-filter: blur(2px);
+        }
+
+        .subhead {
+            margin-top: 0.6rem;
+            font-size: 0.98rem;
+            color: #636e72;
+            background: #dfe6e9;
+            display: inline-block;
+            padding: 0.2rem 1.4rem;
+            border-radius: 30px;
+        }
+
+        /* 网格卡片系统 */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.6rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.03);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05), 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 550;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid #e9ecef;
+            color: #1e272e;
+        }
+
+        .card-title .emoji-icon {
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            margin-bottom: 0.8rem;
+            font-size: 0.96rem;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .link-inline {
+            color: #0b7285;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #74c0da;
+        }
+
+        .link-inline:hover {
+            color: #0c5e6e;
+            border-bottom: 1px solid #0b7285;
+        }
+
+        .meta-list {
+            list-style: none;
+            margin-top: 0.6rem;
+        }
+
+        .meta-list li {
+            font-size: 0.92rem;
+            padding: 0.35rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+            color: #495057;
+            border-bottom: 1px dashed #f1f3f5;
+        }
+
+        .meta-list li:last-child {
+            border-bottom: none;
+        }
+
+        .meta-list li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #2b8a3e;
+            font-weight: bold;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e9ecef;
+            padding: 0.1rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #2d3436;
+            margin-right: 0.3rem;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #2b8a3e;
+            border-radius: 12px;
+            padding: 1.3rem 1.4rem;
+            margin: 1.8rem 0;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+        }
+
+        .info-box h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.7rem;
+            color: #2d3436;
+        }
+
+        .info-box p {
+            font-size: 0.93rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 550;
+            color: #1e272e;
+            margin-bottom: 0.25rem;
+            font-size: 0.96rem;
+        }
+
+        .faq-item p {
+            font-size: 0.9rem;
+            color: #495057;
+            margin-left: 0.8rem;
+        }
+
+        .button-pseudo {
+            display: inline-block;
+            background: #ffffff;
+            color: #2d3436;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            border: 1px solid #d0d7de;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+            cursor: default;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, #e2e8f0, transparent);
+            margin: 2rem 0 1.5rem 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.82rem;
+            color: #868e96;
+            padding-top: 0.7rem;
+            border-top: 1px solid #e9ecef;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .site-header h1 {
+                font-size: 1.6rem;
+                padding: 0.4rem 1.2rem;
+            }
+
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+
+            body {
+                padding: 1.4rem 0.8rem;
+            }
+        }
+
+        @media (max-width: 440px) {
+            .site-header h1 {
+                font-size: 1.4rem;
+            }
+            .card-title {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <header class="site-header">
+        <h1>📚 竞彩知识库</h1>
+        <div class="subhead">一个稳定的入口 · 页面说明 · 日常参考</div>
+    </header>
+
+    <!-- 两个核心卡片：目录感布局 -->
+    <div class="grid-2">
+        <div class="card">
+            <div class="card-title"><span class="emoji-icon">🗂️</span> 页面说明·导航</div>
+            <p>这里是围绕 <a href="https://officialzh-sporttery.com" class="link-inline">竞彩网</a> 整理的信息聚合页。内容偏向日常使用场景，适合初次接触的朋友快速了解基本轮廓，也适合老用户当作一个稳定的知识入口。</p>
+            <p>我们不堆叠广告或诱导按钮，只把一些常见的、真实的信息用卡片分区展示出来。你可以把它看作一张“索引地图”。</p>
+            <ul class="meta-list">
+                <li><span class="badge">基础</span> 页面结构：说明区 · 提示区 · 相关信息</li>
+                <li><span class="badge">定位</span> 方便回顾，不替代官方实时数据</li>
+                <li><span class="badge">更新</span> 内容随认知迭代而微调</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="card-title"><span class="emoji-icon">🧭</span> 稳定入口与使用习惯</div>
+            <p>很多人习惯把 <a href="https://officialzh-sporttery.com" class="link-inline">竞彩网</a> 放在浏览器书签栏里，因为它确实是一个获取信息的固定窗口。你不需要每次去搜索，也不用担心跳到奇怪的地方。</p>
+            <p>稳定的入口意味着你可以把精力放在内容本身，而不是找路。页面里也会保留一些提醒性质的提示区，帮你留意日常细节。</p>
+            <div style="margin-top: 1rem;">
+                <span class="button-pseudo">🔖 适合加入书签</span>
+                <span class="button-pseudo" style="margin-left: 0.5rem;">📌 日常参考</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 信息提示区：混合内容 -->
+    <div class="info-box">
+        <h3>💡 提示区 · 一些值得留意的习惯</h3>
+        <p>🔹 每次通过 <a href="https://officialzh-sporttery.com" class="link-inline">竞彩网</a> 浏览时，注意核对页面顶部的时间戳或版本标识，确保参考的是最新内容。</p>
+        <p>🔹 不同栏目下的信息更新节奏可能不一样，赛程、数据、公告等建议以官网为准。</p>
+        <p>🔹 如果遇到页面布局变化或功能调整，可以先看看帮助中心或公告，很多疑惑都能找到解释。</p>
+        <p style="margin-top: 0.6rem; color: #2d3436;">⏳ 养成定期清理浏览器缓存的习惯，有助于减少加载异常。</p>
+    </div>
+
+    <!-- 第三层：FAQ 摘要 + 相关信息区 -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+        <div class="card">
+            <div class="card-title"><span class="emoji-icon">❓</span> 常见疑问·摘要</div>
+            <div class="faq-item">
+                <strong>Q：这个页面是官方吗？</strong>
+                <p>不是。这是一个个人整理的知识库/入口页，提供指向 <a href="https://officialzh-sporttery.com" class="link-inline">竞彩网</a> 的稳定链接以及相关说明。</p>
+            </div>
+            <div class="faq-item">
+                <strong>Q：为什么有时打不开？</strong>
+                <p>可能和本地网络、dns 或者临时维护有关。建议检查网络后重试，也可以先看页面缓存的信息。</p>
+            </div>
+            <div class="faq-item">
+                <strong>Q：如何反馈问题？</strong>
+                <p>可以通过官网的客服渠道或页面底部的联系方式反馈，本站不做收集。</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title"><span class="emoji-icon">📎</span> 相关信息区</div>
+            <p style="margin-bottom: 0.8rem;">与 <a href="https://officialzh-sporttery.com" class="link-inline">竞彩网</a> 相关的几个侧面：</p>
+            <ul style="list-style: none; padding-left: 0;">
+                <li style="padding: 0.3rem 0; display: flex; align-items: baseline; gap: 0.5rem; border-bottom: 1px solid #f1f3f5;">
+                    <span style="color: #2b8a3e;">✓</span> 公告区 —— 规则调整、版本更新
+                </li>
+                <li style="padding: 0.3rem 0; display: flex; align-items: baseline; gap: 0.5rem; border-bottom: 1px solid #f1f3f5;">
+                    <span style="color: #2b8a3e;">✓</span> 数据板块 —— 指数、赛程、统计
+                </li>
+                <li style="padding: 0.3rem 0; display: flex; align-items: baseline; gap: 0.5rem; border-bottom: 1px solid #f1f3f5;">
+                    <span style="color: #2b8a3e;">✓</span> 帮助中心 —— 操作指引、常见问题
+                </li>
+                <li style="padding: 0.3rem 0; display: flex; align-items: baseline; gap: 0.5rem;">
+                    <span style="color: #2b8a3e;">✓</span> 知识体系 —— 基础术语、规则说明
+                </li>
+            </ul>
+            <p style="margin-top: 0.8rem; font-size: 0.85rem; color: #636e72;">这些区域通常在站内导航里可以找到，本页只做摘要提示。</p>
+        </div>
+    </div>
+
+    <!-- 底部略带生活化的说明 -->
+    <hr>
+    <div style="background: #ffffff; border-radius: 16px; padding: 1.2rem 1.6rem; border: 1px solid #e2e8f0; margin-bottom: 1rem;">
+        <p style="font-size: 0.94rem; color: #2d3436;">📖 作为一个知识库入口，这个页面不会代替你去操作或做决定，但它可以帮你减少一些“找不到、不确定”的困扰。偶尔翻一翻，比临时抱佛脚要踏实一点。如果你觉得哪里还可以补充，就告诉自己先记下来，以后慢慢完善。</p>
+        <p style="margin-top: 0.5rem; font-size: 0.88rem; color: #868e96;">—— 保持轻松，保持清醒。</p>
+    </div>
+
+    <footer class="footer-note">
+        页面内容仅供个人参考 · 所有操作以 <a href="https://officialzh-sporttery.com" class="link-inline" style="border-bottom:1px dotted #aaa;">竞彩网</a> 实时信息为准 · 无诱导性表述
+    </footer>
+</div>
+</body>
+</html>
